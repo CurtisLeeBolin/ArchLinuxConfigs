@@ -1,0 +1,54 @@
+#!/bin/bash
+# add-yd.sh
+# adds my yd scripts for youtube-dl and installs youtube-dl
+
+sudo pacman -Sy --noconfirm youtube-dl rtmpdump
+
+cat <<"EOF" | sudo tee /usr/local/bin/yd
+#!/bin/bash
+# yd
+# Simplifies the use of youtube-dl (works with all site not just youtube)
+# yd <link> <link> ...
+
+youtube-dl --continue --max-quality=22 --ignore-errors --user-agent "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.65 Safari/537.36" --output "%(title)s (%(id)s).%(ext)s" "$@"
+EOF
+
+
+cat <<"EOF" | sudo tee /usr/local/bin/ydu
+#!/bin/bash
+# ydu
+# Downloads all videos of a user
+# ydu <username>
+
+youtube-dl --continue --max-quality=22 --ignore-errors --user-agent "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.65 Safari/537.36" --output "%(upload_date)s %(title)s (%(id)s).%(ext)s" "http://www.youtube.com/user/$1"
+EOF
+
+
+cat <<"EOF" | sudo tee /usr/local/bin/ydp
+#!/bin/bash
+# ydp
+# Downloads all videos of a playlist(s)
+# ydp <link> <link> ...
+
+youtube-dl --continue --max-quality=22 --ignore-errors --user-agent "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.65 Safari/537.36" --output "%(autonumber)s %(title)s (%(id)s).%(ext)s" "$@"
+EOF
+
+
+cat <<"EOF" | sudo tee /usr/local/bin/yds
+#!/bin/bash
+# yds
+# Downloads from a youtube search
+# yds <number> <search terms>
+#
+# examples to download 10 Harlem Shake Videos:
+#
+# yds 10 Harlem\ Shake
+# or 
+# yds 10 "Harlem Shake"
+
+count="$1"
+shift
+youtube-dl --continue --max-quality=22 --ignore-errors --user-agent "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.65 Safari/537.36" --output "%(title)s (%(id)s).%(ext)s" "ytsearch$count:$@"
+EOF
+
+sudo chmod +x /usr/local/bin/yd /usr/local/bin/yds /usr/local/bin/ydp /usr/local/bin/ydu

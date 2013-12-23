@@ -1,0 +1,5 @@
+startup_message off
+msgwait 0
+defscrollback 50000
+hardstatus alwayslastline
+hardstatus string '%{= kg}[ %{r}%H %{g}][%{b}%= %{=kw}%?%-Lw%?%{r}(%{w}%n*%f %t%?(%u)%?%{r})%{b}%?%+Lw%?%?%= %{g}][%{y}%Y.%m.%d %{w}%c:%s %{g}]'
