@@ -43,7 +43,6 @@ sprunge() {
 	curl -F 'sprunge=<-' http://sprunge.us < "${1:-/dev/stdin}"
 }
 
-# start screen
-if [ "${SSH_TTY:-x}" != x ] && hash yaourt > /dev/null 2>&1; then
-        screen -xRR
-fi
+# If not running interactively, do not do anything
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux
