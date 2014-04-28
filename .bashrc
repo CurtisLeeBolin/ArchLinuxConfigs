@@ -46,5 +46,5 @@ sprunge() {
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
 if [ -z "$TMUX" ] && hash tmux > /dev/null 2>&1; then
-	exec tmux
+	exec tmux attach
 fi
