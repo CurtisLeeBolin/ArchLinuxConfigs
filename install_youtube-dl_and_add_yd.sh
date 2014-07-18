@@ -60,4 +60,4 @@ shift
 youtube-dl --continue --max-quality=22 --ignore-errors --user-agent "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.65 Safari/537.36" --output "%(title)s (%(id)s).%(ext)s" "ytsearch$count:$@"
 EOF
 
-sudo chmod +x /usr/local/bin/yd /usr/local/bin/yds /usr/local/bin/ydp /usr/local/bin/ydu
+sudo chmod +x /usr/local/bin/yd /usr/local/bin/yda /usr/local/bin/yds /usr/local/bin/ydp /usr/local/bin/ydu
