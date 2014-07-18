@@ -13,6 +13,15 @@ cat <<"EOF" | sudo tee /usr/local/bin/yd
 youtube-dl --continue --max-quality=22 --ignore-errors --user-agent "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.65 Safari/537.36" --output "%(title)s (%(id)s).%(ext)s" "$@"
 EOF
 
+cat <<"EOF" | sudo tee /usr/local/bin/yda
+#!/bin/bash
+# yd
+# Simplifies the use of youtube-dl (works with all site not just youtube)
+# yd <link> <link> ...
+
+youtube-dl --continue --max-quality=140 --ignore-errors --user-agent "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.65 Safari/537.36" --output "%(title)s (%(id)s).%(ext)s" "$@"
+EOF
+
 
 cat <<"EOF" | sudo tee /usr/local/bin/ydu
 #!/bin/bash
