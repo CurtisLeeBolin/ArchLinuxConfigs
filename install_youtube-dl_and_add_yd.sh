@@ -69,7 +69,8 @@ cat <<"EOF" | sudo tee /usr/local/bin/dl
 
 import sys
 import time
-import urllib
+import urllib.request
+import urllib.parse
 
 def reporthook(count, block_size, total_size):
     global start_time
@@ -80,12 +81,13 @@ def reporthook(count, block_size, total_size):
     progress_size = int(count * block_size)
     speed = int(progress_size / (1024 * duration))
     percent = int(count * block_size * 100 / total_size)
-    sys.stdout.write("\r...%d%%, %d MB, %d KB/s, %d seconds passed" %
+    sys.stdout.write("\r  %d%%, %d MiB, %d kiB/s, %ds elapsed" %
                     (percent, progress_size / (1024 * 1024), speed, duration))
     sys.stdout.flush()
 
 def save(url, filename):
-    urllib.urlretrieve(url, filename, reporthook)
+    urllib.request.urlretrieve(url, filename, reporthook)
+
 
 for each in sys.argv[1:]:
 
@@ -96,5 +98,6 @@ for each in sys.argv[1:]:
     save(url, filename)
     print('\n')
 EOF
+
 
 sudo chmod +x /usr/local/bin/yd /usr/local/bin/yda /usr/local/bin/yds /usr/local/bin/ydp /usr/local/bin/ydu /usr/local/bin/dl
