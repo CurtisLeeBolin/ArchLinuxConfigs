@@ -2,7 +2,7 @@
 # add-yd.sh
 # adds my yd scripts for youtube-dl and installs youtube-dl
 
-sudo pacman -Sy --noconfirm youtube-dl rtmpdump python
+sudo pacman -Sy --noconfirm --needed youtube-dl rtmpdump python
 
 USER_AGENT="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36"
 
