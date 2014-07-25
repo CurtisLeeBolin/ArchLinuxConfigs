@@ -63,14 +63,29 @@ youtube-dl --continue --max-quality=22 --ignore-errors --user-agent "$USER_AGENT
 EOF
 
 
-cat <<EOF | sudo tee /usr/local/bin/dl
-#!/bin/bash
-# dl
-# Downloads a list using curl
+cat <<"EOF" | sudo tee /usr/local/bin/dl
+#!/usr/bin/env python3
+# dl - Downloader
 
-for each in "\$@"; do
-  curl -O "\$each"
-done
+import sys
+import time
+import urllib
+
+def reporthook(count, block_size, total_size):
+    global start_time
+    if count == 0:
+        start_time = time.time()
+        return
+    duration = time.time() - start_time
+    progress_size = int(count * block_size)
+    speed = int(progress_size / (1024 * duration))
+    percent = int(count * block_size * 100 / total_size)
+    sys.stdout.write("\r...%d%%, %d MB, %d KB/s, %d seconds passed" %
+                    (percent, progress_size / (1024 * 1024), speed, duration))
+    sys.stdout.flush()
+ 
+def save(url, filename):
+    urllib.urlretrieve(url, filename, reporthook)
 EOF
 
 sudo chmod +x /usr/local/bin/yd /usr/local/bin/yda /usr/local/bin/yds /usr/local/bin/ydp /usr/local/bin/ydu /usr/local/bin/dl
