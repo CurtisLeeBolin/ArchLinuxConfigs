@@ -86,6 +86,15 @@ def reporthook(count, block_size, total_size):
  
 def save(url, filename):
     urllib.urlretrieve(url, filename, reporthook)
+
+for each in sys.argv[1:]:
+
+    url = each
+    filename = urllib.parse.unquote(url.rsplit('/',1)[1])
+
+    print(filename)
+    save(url, filename)
+    print('\n')
 EOF
 
 sudo chmod +x /usr/local/bin/yd /usr/local/bin/yda /usr/local/bin/yds /usr/local/bin/ydp /usr/local/bin/ydu /usr/local/bin/dl
