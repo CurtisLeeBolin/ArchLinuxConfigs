@@ -43,6 +43,13 @@ sprunge() {
 	curl -F 'sprunge=<-' http://sprunge.us < "${1:-/dev/stdin}"
 }
 
+# Add gopath
+if [ -d $HOME/Project/go ]; then
+    mkdir -p $HOME/Project/go
+fi
+export GOPATH=$HOME/Projects/go
+export PATH=$PATH:$GOPATH/bin
+
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
 if [ -z "$TMUX" ] && hash tmux > /dev/null 2>&1; then
