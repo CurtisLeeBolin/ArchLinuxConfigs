@@ -29,7 +29,7 @@ set softwrap
 set speller "aspell -x -c"
 
 ## Use this tab size instead of the default; it must be greater than 0.
-set tabsize 4
+set tabsize 2
 
 ## Enable the new (EXPERIMENTAL) generic undo code, not just for line
 ## cuts.
