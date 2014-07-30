@@ -17,9 +17,9 @@ EOF
 
 cat <<EOF | sudo tee /usr/local/bin/yda
 #!/bin/bash
-# yd
-# Simplifies the use of youtube-dl (works with all site not just youtube)
-# yd <link> <link> ...
+# yda
+# Simplifies the use of youtube-dl to download audio from youtube
+# yda <link> <link> ...
 
 youtube-dl --continue --max-quality=140 --ignore-errors --user-agent "$USER_AGENT" --output "%(title)s (%(id)s).%(ext)s" "\$@"
 EOF
