@@ -9,7 +9,7 @@ if  ! hash yaourt > /dev/null 2>&1; then
 fi
 
 # install packages
-yaourt -S --noconfirm --needed tor privoxy midori oraclejdk8-64
+yaourt -S --noconfirm --needed tor privoxy midori jdk
 yaourt -S --noconfirm --needed i2p
 
 # setup privoxy
