@@ -9,7 +9,7 @@ if  ! hash yaourt > /dev/null 2>&1; then
 fi
 
 # install packages
-yaourt -S --noconfirm tor privoxy midori jdk7-openjdk
+yaourt -S --noconfirm tor privoxy midori oraclejdk8-64
 yaourt -S --noconfirm i2p
 
 # setup privoxy
@@ -33,7 +33,7 @@ sudo patch -r - --force --unified /etc/privoxy/config <<"EOF"
 EOF
 
 # tor, i2p, and privoxy: start and set to start at boot
-for service in tor i2prouter privoxy; do
+for service in tor privoxy; do
 	sudo systemctl enable $service
 	sudo systemctl start $service
 done
