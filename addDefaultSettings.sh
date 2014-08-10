@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo pacman -S --noconfirm --needed bash bash-completion
+
 for each in .bashrc .nanorc .profile .tmux.conf .yaourtrc; do
 	curl -O https://raw.githubusercontent.com/CurtisLeeBolin/MyArchLinuxGoodies/master/"$each"
 done
