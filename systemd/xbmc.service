@@ -1,0 +1,20 @@
+# changes to /etc/X11/Xwrapper.config for this service to work
+# allowed_users = anybody
+# needs_root_rights = yes
+
+[Unit]
+Description = Starts instance of XBMC using xinit
+After = systemd-user-sessions.service network.target
+Conflicts=getty@tty7.service
+
+[Service]
+User = xbmc
+Group = xbmc
+PAMName=login
+Type = simple
+TTYPath=/dev/tty7
+ExecStart = /usr/bin/xinit /usr/bin/dbus-launch --exit-with-session /usr/bin/xbmc-st$
+Restart = on-abort
+
+[Install]
+WantedBy = multi-user.target
