@@ -1,3 +1,6 @@
+# Add xbmc user
+# useradd -m -c 'XBMC user' -G audio,video,network,optical -d /var/lib/xbmc -s /usr/bin/nologin xbmc
+#
 # changes to /etc/X11/Xwrapper.config for this service to work
 # allowed_users = anybody
 # needs_root_rights = yes
