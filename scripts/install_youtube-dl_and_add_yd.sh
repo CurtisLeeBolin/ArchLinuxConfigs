@@ -1,6 +1,6 @@
 #!/bin/bash
 # add-yd.sh
-# adds my yd scripts for youtube-dl and installs youtube-dl
+# adds my dl and yd scripts for youtube-dl and installs youtube-dl
 
 sudo pacman -Sy --noconfirm --needed youtube-dl rtmpdump python
 
