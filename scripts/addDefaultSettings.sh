@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# check for yaourt
+if  ! hash yaourt > /dev/null 2>&1; then
+	echo "Please install yaourt first!"
+	exit 1
+fi
+
 sudo pacman -S --noconfirm --needed bash bash-completion nano tmux
 
 sudo cp ../configs/.bashrc /etc/bash.bashrc
