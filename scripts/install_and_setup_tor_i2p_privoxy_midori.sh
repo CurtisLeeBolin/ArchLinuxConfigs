@@ -9,8 +9,7 @@ if  ! hash yaourt > /dev/null 2>&1; then
 fi
 
 # install packages
-yaourt -S --noconfirm --needed tor privoxy midori jdk
-yaourt -S --noconfirm --needed i2p
+yaourt -S --noconfirm --needed tor privoxy midori-gtk3 jre8-openjdk jdk8-openjdk i2p-bin
 
 # setup privoxy
 sudo patch -r - --force --unified /etc/privoxy/config <<"EOF"
