@@ -17,7 +17,7 @@ if [ "$(id -u)" == "0" ]; then
 else
     PS1="\[\e[0;32m\]\u\[\e[0;33m\]@\[\e[0;36m\]\h \[\e[0;35m\]\W \[\e[0;31m\]$ \[\e[0;37m\]"
 fi
-EDITOR=nano
+export EDITOR=nano
 
 # enable color support of ls and also add handy aliases
 alias ls='ls --color=auto'
