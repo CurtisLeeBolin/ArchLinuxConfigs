@@ -26,6 +26,9 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias pacman='pacman --color auto'
 
+# Enable auto complete for sudo
+complete -cf sudo
+
 # man with colors using less
 man() {
     env LESS_TERMCAP_mb=$'\E[01;31m' \
