@@ -13,4 +13,4 @@ makepkg -si --noconfirm
 cd ../../
 rm -rf build
 cd
-yaourt -S --noconfirm package-query yaourt
+yaourt -D --asexplicit package-query yaourt
