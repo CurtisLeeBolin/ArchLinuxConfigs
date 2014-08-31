@@ -15,4 +15,4 @@ sudo cp ../configs/.tmux.conf /etc/tmux.conf
 sudo cp ../configs/.yaourtrc /etc/yaourtrc
 rm -f $HOME/.bashrc $HOME/.nanorc $HOME/.profile $HOME/.tmux.conf $HOME/.yaourtrc
 sudo rm -f /root/.bashrc /root/.nanorc /root/.profile /root/.tmux.conf /root/.yaourtrc
-sudo rm /etc/skel/*
+sudo rm /etc/skel/{.bash_logout,.bash_profile,.bashrc}
