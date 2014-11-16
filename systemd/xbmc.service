@@ -16,7 +16,7 @@ Group = xbmc
 PAMName=login
 Type = simple
 TTYPath=/dev/tty7
-ExecStart = /usr/bin/xinit /usr/bin/dbus-launch --exit-with-session /usr/bin/xbmc-st$
+ExecStart = /usr/bin/xinit /usr/bin/dbus-launch --exit-with-session /usr/bin/xbmc-standalone
 Restart = on-abort
 
 [Install]
