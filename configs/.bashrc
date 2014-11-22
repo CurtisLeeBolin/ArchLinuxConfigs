@@ -55,12 +55,19 @@ shopt -s histappend
 ## After each command, save and reload history
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
-# Add gopath
-if [ -d $HOME/Project/go ]; then
-    mkdir -p $HOME/Project/go
-fi
-export GOPATH=$HOME/Projects/go
+# Add Go
+export GOPATH=$HOME/Projects/golang
 export PATH=$PATH:$GOPATH/bin
+if [ -d $GOPATH ]; then
+    mkdir -p $GOPATH
+fi
+
+# Add Node.js
+export npm_config_prefix=$HOME/Projects/node.js
+export PATH=$PATH:$npm_config_prefix/bin
+if [ -d $npm_config_prefix ]; then
+    mkdir -p $npm_config_prefix
+fi
 
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
