@@ -64,6 +64,7 @@ fi
 
 # Add Node.js
 export npm_config_prefix=$HOME/Projects/node.js
+export NODE_PATH=$HOME/Projects/node.js/lib/node_modules
 export PATH=$PATH:$npm_config_prefix/bin
 if [ -d $npm_config_prefix ]; then
     mkdir -p $npm_config_prefix
