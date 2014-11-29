@@ -6,7 +6,7 @@ if  ! hash yaourt > /dev/null 2>&1; then
 	exit 1
 fi
 
-sudo pacman -S --noconfirm --needed bash bash-completion nano tmux
+sudo pacman -S --noconfirm --needed bash bash-completion nano tmux rsync openssh
 
 sudo cp ../configs/.bashrc /etc/bash.bashrc
 sudo cp ../configs/.nanorc /etc/nanorc
