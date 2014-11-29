@@ -58,7 +58,7 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; histor
 # Add Go
 export GOPATH=$HOME/Projects/golang
 export PATH=$PATH:$GOPATH/bin
-if [ -d $GOPATH ]; then
+if [ ! -d $GOPATH ]; then
     mkdir -p $GOPATH
 fi
 
@@ -66,7 +66,7 @@ fi
 export npm_config_prefix=$HOME/Projects/node.js
 export NODE_PATH=$HOME/Projects/node.js/lib/node_modules
 export PATH=$PATH:$npm_config_prefix/bin
-if [ -d $npm_config_prefix ]; then
+if [ ! -d $npm_config_prefix ]; then
     mkdir -p $npm_config_prefix
 fi
 
