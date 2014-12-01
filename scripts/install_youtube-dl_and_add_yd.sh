@@ -6,6 +6,7 @@ sudo pacman -Sy --noconfirm --needed youtube-dl rtmpdump python
 
 USER_AGENT="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36"
 
+
 cat <<EOF | sudo tee /usr/local/bin/yd
 #!/bin/bash
 # yd
@@ -14,6 +15,7 @@ cat <<EOF | sudo tee /usr/local/bin/yd
 
 youtube-dl --continue --max-quality=22 --ignore-errors --user-agent "$USER_AGENT" --output "%(title)s (%(id)s).%(ext)s" "\$@"
 EOF
+
 
 cat <<EOF | sudo tee /usr/local/bin/yda
 #!/bin/bash
@@ -61,5 +63,6 @@ count="\$1"
 shift
 youtube-dl --continue --max-quality=22 --ignore-errors --user-agent "$USER_AGENT" --output "%(title)s (%(id)s).%(ext)s" "ytsearch\$count:\$@"
 EOF
+
 
 sudo chmod +x /usr/local/bin/yd /usr/local/bin/yda /usr/local/bin/yds /usr/local/bin/ydp /usr/local/bin/ydu /usr/local/bin/dl
