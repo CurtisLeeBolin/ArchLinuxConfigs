@@ -62,42 +62,4 @@ shift
 youtube-dl --continue --max-quality=22 --ignore-errors --user-agent "$USER_AGENT" --output "%(title)s (%(id)s).%(ext)s" "ytsearch\$count:\$@"
 EOF
 
-
-cat <<"EOF" | sudo tee /usr/local/bin/dl
-#!/usr/bin/env python3
-# dl - Downloader
-
-import sys
-import time
-import urllib.request
-import urllib.parse
-
-def reporthook(count, block_size, total_size):
-    global start_time
-    if count == 0:
-        start_time = time.time()
-        return
-    duration = time.time() - start_time
-    progress_size = int(count * block_size)
-    speed = int(progress_size / (1024 * duration))
-    percent = int(count * block_size * 100 / total_size)
-    sys.stdout.write("\r  %d%%, %d MiB, %d kiB/s, %ds elapsed" %
-                    (percent, progress_size / (1024 * 1024), speed, duration))
-    sys.stdout.flush()
-
-def save(url, filename):
-    urllib.request.urlretrieve(url, filename, reporthook)
-
-
-for each in sys.argv[1:]:
-
-    url = each
-    filename = urllib.parse.unquote(url.rsplit('/',1)[1])
-
-    print(filename)
-    save(url, filename)
-    print('\n')
-EOF
-
-
 sudo chmod +x /usr/local/bin/yd /usr/local/bin/yda /usr/local/bin/yds /usr/local/bin/ydp /usr/local/bin/ydu /usr/local/bin/dl
