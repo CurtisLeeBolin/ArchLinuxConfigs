@@ -2,7 +2,7 @@
 # add-yd.sh
 # adds my dl and yd scripts for youtube-dl and installs youtube-dl
 
-sudo pacman -Sy --noconfirm --needed youtube-dl rtmpdump python
+sudo pacman -Sy --noconfirm --needed youtube-dl rtmpdump python ffmpeg axel
 
 USER_AGENT="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36"
 
@@ -62,6 +62,18 @@ cat <<EOF | sudo tee /usr/local/bin/yds
 count="\$1"
 shift
 youtube-dl --continue --max-quality=22 --ignore-errors --user-agent "$USER_AGENT" --output "%(title)s (%(id)s).%(ext)s" "ytsearch\$count:\$@"
+EOF
+
+
+cat <<EOF | sudo tee /usr/local/bin/dl
+#!/bin/bash
+# dl
+# Simplifies the use of axel
+# dl <link> <link> ...
+
+for url in \$@; do
+  axel --alternate --user-agent="$USER_AGENT" "\$URL"
+done
 EOF
 
 
