@@ -72,7 +72,7 @@ cat <<EOF | sudo tee /usr/local/bin/dl
 # dl <link> <link> ...
 
 for url in \$@; do
-  axel --alternate --user-agent="$USER_AGENT" "\$URL"
+  axel --alternate --user-agent="$USER_AGENT" "\$url"
 done
 EOF
 
