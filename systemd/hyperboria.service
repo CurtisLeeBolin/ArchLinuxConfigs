@@ -1,0 +1,10 @@
+[Unit]
+Description = Starts Hyperboria                  
+After = network.target
+
+[Service]
+ExecStart = /var/lib/hyperboria/cjdns/cjdroute.sh                                                                   
+Restart = on-abort
+
+[Install]
+WantedBy = multi-user.target
