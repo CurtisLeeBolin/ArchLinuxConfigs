@@ -4,7 +4,7 @@
 
 sudo pacman -Sy --noconfirm --needed youtube-dl rtmpdump python ffmpeg axel
 
-USER_AGENT="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36"
+USER_AGENT="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36"
 
 
 cat <<EOF | sudo tee /usr/local/bin/yd
