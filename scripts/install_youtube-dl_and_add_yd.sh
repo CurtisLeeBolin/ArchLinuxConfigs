@@ -2,7 +2,7 @@
 # add-yd.sh
 # adds my dl and yd scripts for youtube-dl and installs youtube-dl
 
-sudo pacman -Sy --noconfirm --needed youtube-dl rtmpdump python ffmpeg axel
+sudo pacman -Sy --noconfirm --needed youtube-dl rtmpdump python ffmpeg aria2
 
 USER_AGENT="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36"
 
@@ -72,7 +72,7 @@ cat <<EOF | sudo tee /usr/local/bin/dl
 # dl <link> <link> ...
 
 for url in \$@; do
-  axel --alternate --user-agent="$USER_AGENT" "\$url"
+  aria2c --max-concurrent-downloads=10 --continue=true --user-agent="$USER_AGENT" "\$url"
 done
 EOF
 
