@@ -26,6 +26,9 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias pacman='pacman --color auto'
 
+# cow cp for cow file systems like btrfs
+alias cowcp='cp --reflink=always'
+
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
