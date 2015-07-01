@@ -13,7 +13,7 @@ cat <<EOF | sudo tee /usr/local/bin/yd
 # Simplifies the use of youtube-dl (works with all site not just youtube)
 # yd <link> <link> ...
 
-youtube-dl --continue --format=best[height<=?720]+bestaudio --audio-format vorbis --embed-subs --embed-thumbnail --add-metadata --merge-output-format mkv --ignore-errors --sub-lang en --write-sub --user-agent "$USER_AGENT" --output "%(title)s (%(id)s).%(ext)s" "\$@"
+youtube-dl --continue --format="best[height<=?720]+bestaudio" --audio-format vorbis --embed-subs --embed-thumbnail --add-metadata --merge-output-format mkv --ignore-errors --sub-lang en --write-sub --user-agent "$USER_AGENT" --output "%(title)s (%(id)s).%(ext)s" "\$@"
 EOF
 
 
@@ -33,7 +33,7 @@ cat <<EOF | sudo tee /usr/local/bin/ydu
 # Downloads all videos of a user
 # ydu <username>
 
-youtube-dl --continue --format=best[height<=?720]+bestaudio --audio-format vorbis --embed-subs --embed-thumbnail --add-metadata --merge-output-format mkv --ignore-errors --sub-lang en --write-sub --user-agent "$USER_AGENT" --output "%(upload_date)s %(title)s (%(id)s).%(ext)s" "http://www.youtube.com/user/\$1"
+youtube-dl --continue --format="best[height<=?720]+bestaudio" --audio-format vorbis --embed-subs --embed-thumbnail --add-metadata --merge-output-format mkv --ignore-errors --sub-lang en --write-sub --user-agent "$USER_AGENT" --output "%(upload_date)s %(title)s (%(id)s).%(ext)s" "http://www.youtube.com/user/\$1"
 EOF
 
 
@@ -43,7 +43,7 @@ cat <<EOF | sudo tee /usr/local/bin/ydp
 # Downloads all videos of a playlist(s)
 # ydp <link> <link> ...
 
-youtube-dl --continue --format=best[height<=?720]+bestaudio --audio-format vorbis --embed-subs --embed-thumbnail --add-metadata --merge-output-format mkv --ignore-errors --sub-lang en --write-sub --user-agent "$USER_AGENT" --output "%(autonumber)s %(title)s (%(id)s).%(ext)s" "\$@"
+youtube-dl --continue --format="best[height<=?720]+bestaudio" --audio-format vorbis --embed-subs --embed-thumbnail --add-metadata --merge-output-format mkv --ignore-errors --sub-lang en --write-sub --user-agent "$USER_AGENT" --output "%(autonumber)s %(title)s (%(id)s).%(ext)s" "\$@"
 EOF
 
 
@@ -61,7 +61,7 @@ cat <<EOF | sudo tee /usr/local/bin/yds
 
 count="\$1"
 shift
-youtube-dl --continue --format=best[height<=?720]+bestaudio --audio-format vorbis --embed-subs --embed-thumbnail --add-metadata --merge-output-format mkv --ignore-errors --sub-lang en --write-sub --user-agent "$USER_AGENT" --output "%(title)s (%(id)s).%(ext)s" "ytsearch\$count:\$@"
+youtube-dl --continue --format="best[height<=?720]+bestaudio" --audio-format vorbis --embed-subs --embed-thumbnail --add-metadata --merge-output-format mkv --ignore-errors --sub-lang en --write-sub --user-agent "$USER_AGENT" --output "%(title)s (%(id)s).%(ext)s" "ytsearch\$count:\$@"
 EOF
 
 
