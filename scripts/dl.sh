@@ -3,10 +3,12 @@
 # Simplifies the use of axel
 # dl "<link> <link> ..."
 
+USER_AGENT="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36"
+
 url=$@
 
 download_video () {
-  aria2c --max-concurrent-downloads=10 --continue=true --user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36" "$1"
+  aria2c --max-concurrent-downloads=10 --continue=true --user-agent="$USER_AGENT" "$1"
 }
 
 if [[ "$url" =~ ( |\') ]]; then
