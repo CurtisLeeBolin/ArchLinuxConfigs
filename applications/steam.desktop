@@ -1,0 +1,8 @@
+# Corrects Steam's Lib Problems
+[Desktop Entry]
+Name=Steam
+Exec=/usr/bin/sh -c "LD_PRELOAD='/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1' steam"
+Icon=steam
+Terminal=false
+Type=Application
+Categories=Network;FileTransfer;Game;
