@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+# Chrome_Background_Service.desktop
+#
+# Place in ~/.config/autostart/ to auto start at login
+#
+[Desktop Entry]
+Name=Chrome Background Service
+Exec=/usr/bin/google-chrome-stable --no-startup-window
+Icon=google-chrome
+Type=Application
+Categories=GTK;GNOME;Utility
