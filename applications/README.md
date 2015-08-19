@@ -1,1 +1,1 @@
-Place in $HOME/.local/share/applications/
+Place in ${HOME}/.local/share/applications/
