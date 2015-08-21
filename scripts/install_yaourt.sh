@@ -1,14 +1,14 @@
 #!/bin/bash
 # install_yaourt.sh
 
-sudo pacman -S --noconfirm --needed base-devel
-mkdir -p /tmp/build/package-query
-mkdir -p /tmp/build/yaourt
-cd /tmp/build/package-query
-curl -O https://aur.archlinux.org/packages/pa/package-query/PKGBUILD
+sudo pacman -S --noconfirm --needed base-devel git
+mkdir -p /tmp/build/
+cd /tmp/build
+git clone https://aur.archlinux.org/package-query.git
+git clone https://aur4.archlinux.org/yaourt.git
+cd package-query
 makepkg -si --noconfirm
-cd /tmp/build/yaourt
-curl -O https://aur.archlinux.org/packages/ya/yaourt/PKGBUILD
+cd ../yaourt
 makepkg -si --noconfirm
 cd ../../
 rm -rf build
