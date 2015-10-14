@@ -13,9 +13,9 @@ shopt -s checkwinsize
 
 # Environment Variables
 if [ "$(id -u)" == "0" ]; then
-    export PS1="\[\e[0;31m\]\u\[\e[0;33m\]@\[\e[0;36m\]\h \[\e[0;35m\]\W \[\e[0;31m\]# \[\e[0;37m\]"
+    export PS1="\[\e[0;31m\]\u\[\e[0;33m\]@\[\e[0;36m\]\h \[\e[0;35m\]\w \[\e[0;31m\]\n# \[\e[0;37m\]"
 else
-    export PS1="\[\e[0;32m\]\u\[\e[0;33m\]@\[\e[0;36m\]\h \[\e[0;35m\]\W \[\e[0;31m\]$ \[\e[0;37m\]"
+    export PS1="\[\e[0;32m\]\u\[\e[0;33m\]@\[\e[0;36m\]\h \[\e[0;35m\]\w \[\e[0;31m\]\n$ \[\e[0;37m\]"
 fi
 export EDITOR=nano
 
