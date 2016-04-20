@@ -8,7 +8,8 @@ USER_AGENT="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Geck
 url=$@
 
 download_video () {
-	youtube-dl --continue --format=bestaudio --ignore-errors --user-agent "$USER_AGENT" --output "%(title)s (%(id)s).%(ext)s" "$1"
+	youtube-dl --continue --format=bestaudio --ignore-errors \
+		--user-agent "$USER_AGENT" --output "%(title)s (%(id)s).%(ext)s" "$1"
 }
 
 if [[ "$url" =~ ( |\') ]]; then

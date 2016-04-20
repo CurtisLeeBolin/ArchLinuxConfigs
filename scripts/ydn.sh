@@ -11,7 +11,8 @@ download_video () {
 	youtube-dl --continue --format="bestvideo[height<=?720]+bestaudio/best" \
 		--audio-format vorbis --embed-subs --embed-thumbnail --add-metadata \
 		--merge-output-format mkv --ignore-errors --sub-lang en --write-sub \
-		--user-agent "$USER_AGENT" --output "%(title)s (%(id)s).%(ext)s" "$1"
+		--user-agent "$USER_AGENT" \
+		--output "%(upload_date)s %(title)s (%(id)s).%(ext)s" "$1"
 }
 
 if [[ "$url" =~ ( |\') ]]; then

@@ -8,7 +8,8 @@ USER_AGENT="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Geck
 url=$@
 
 download_video () {
-  aria2c --max-concurrent-downloads=10 --continue=true --user-agent="$USER_AGENT" "$1"
+  aria2c --max-concurrent-downloads=10 --continue=true \
+    --user-agent="$USER_AGENT" "$1"
 }
 
 if [[ "$url" =~ ( |\') ]]; then
