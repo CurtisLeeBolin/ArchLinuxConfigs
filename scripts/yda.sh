@@ -8,7 +8,7 @@ url=$@
 download_video () {
 	youtube-dl --continue --format=bestaudio --ignore-errors \
 		--age-limit 30 \
-		--output "%(title)s (%(id)s).%(ext)s" "$1"
+		--output "%(title)s (%(id)s).ogg" "$1"
 }
 
 if [[ "$url" =~ ( |\') ]]; then
