@@ -1,0 +1,10 @@
+[Unit]
+Description=Disable the dedicated GPU after resume
+After=suspend.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/disable-gpu.sh
+
+[Install]
+WantedBy=suspend.target
