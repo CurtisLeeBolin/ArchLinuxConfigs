@@ -6,8 +6,8 @@
 url=$@
 
 download_video () {
-	youtube-dl --continue --embed-subs --add-metadata \
-		--merge-output-format mkv --ignore-errors --sub-lang en --write-sub \
+	youtube-dl --continue --format bestvideo+bestaudio \
+		--merge-output-format mkv --ignore-errors \
 		--age-limit 30 \
 		--output "%(title)s (%(id)s).%(ext)s" "$1"
 }
