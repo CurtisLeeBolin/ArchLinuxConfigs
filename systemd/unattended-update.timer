@@ -1,0 +1,10 @@
+[Unit]
+Description=Unattended Update
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+RandomizedDelaySec=3hours
+
+[Install]
+WantedBy=multi-user.target
