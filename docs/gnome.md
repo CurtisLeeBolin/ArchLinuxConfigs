@@ -1,3 +1,6 @@
+# GDM: System Administrator Guide
+https://help.gnome.org/admin/system-admin-guide/stable/index.html.en
+
 # GDM: Disable Sleep
 `$ sudo -u gdm dbus-launch gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'`
 
