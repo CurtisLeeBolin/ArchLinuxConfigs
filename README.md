@@ -1,7 +1,7 @@
 MyArchLinuxGoodies
 ==================
 
-Just some config files and scripts for ArchLinux.
+Just some docs, config files, and scripts for ArchLinux.
 
-##Licence
+## Licence
 Unless otherwise noted all code here is Public Domain (Unlicense).
