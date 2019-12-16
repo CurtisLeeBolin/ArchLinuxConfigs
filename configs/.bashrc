@@ -73,6 +73,13 @@ if [ ! -d $npm_config_prefix ]; then
     mkdir -p $npm_config_prefix
 fi
 
+# Add Rust Cargo
+export CARGO_HOME=$HOME/Projects/cargo
+export PATH=$PATH:$CARGO_HOME/bin
+if [ ! -d $CARGO_HOME ]; then
+    mkdir -p $CARGO_HOME
+fi
+
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
 if [ -z "$TMUX" ] && hash tmux > /dev/null 2>&1; then
