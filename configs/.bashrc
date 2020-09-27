@@ -80,6 +80,9 @@ if [ ! -d $CARGO_HOME ]; then
     mkdir -p $CARGO_HOME
 fi
 
+# Add $HOME/.local/bin to PATH
+export PATH=$PATH:$HOME/.local/bin
+
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
 if [ -z "$TMUX" ] && hash tmux > /dev/null 2>&1; then
