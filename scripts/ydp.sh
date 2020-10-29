@@ -1,9 +1,15 @@
 #!/bin/bash
 # ydp
-# Downloads all videos of a playlist(s)
-# ydp <link> <link> ...
+# Downloads all videos of a channel/user/playlist with numbering
+# ydp "<link> <link> ..."
 
-youtube-dl --continue --embed-subs --embed-thumbnail --add-metadata \
-  --merge-output-format mkv --ignore-errors --sub-lang en --write-sub \
-  --age-limit 30 \
-  --output "%(autonumber)s %(title)s (%(id)s).%(ext)s" "$@"
+url=$@
+
+download_video () {
+	youtube-dl --continue --embed-subs --embed-thumbnail --add-metadata \
+    --merge-output-format mkv --ignore-errors --sub-lang en --write-sub \
+    --cookies ~/.config/youtube-dl/cookies.txt \
+    --output "%(autonumber)s %(title)s (%(id)s).%(ext)s" "$1"
+}
+
+download_video $url
