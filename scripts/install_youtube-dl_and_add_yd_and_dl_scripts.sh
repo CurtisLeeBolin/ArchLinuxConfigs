@@ -2,9 +2,13 @@
 # add-yd.sh
 # adds my dl and yd scripts for youtube-dl and installs youtube-dl
 
-sudo pacman -Sy --noconfirm --needed youtube-dl ffmpeg rtmpdump atomicparsley python-crypto aria2
+sudo pacman -Sy --noconfirm --needed curl atomicparsley ffmpeg python-pycryptodome rtmpdump
 
-script_arr=(dl yd ydn yda ydc ydp yds ydu)
+curl -L https://yt-dl.org/downloads/latest/youtube-dl -o ~/.local/bin/youtube-dl
+chmod a+rx ~/.local/bin/youtube-dl
+
+script_arr=(dl yd ydn yda ydc ydch ydp yds ydu ydupdate)
 for each in "${script_arr[@]}"; do
-  sudo cp ./"$each".sh  /usr/local/bin/"$each"
+  cp ./"$each".sh  ~/.local/bin/"$each"
+  chmod a+rx ~/.local/bin/"$each"
 done
