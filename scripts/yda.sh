@@ -6,7 +6,7 @@
 url=$@
 
 download_video () {
-  youtube-dl --continue --format=bestaudio --embed-thumbnail --add-metadata \
+  youtube-dl --format=bestaudio --embed-thumbnail --add-metadata \
     --merge-output-format ogg --ignore-errors \
     --cookies ~/.config/youtube-dl/cookies.txt \
     --output "%(title)s (%(id)s).ogg" "$1"
