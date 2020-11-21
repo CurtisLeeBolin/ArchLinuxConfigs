@@ -1,5 +1,4 @@
 #!/bin/bash
-# install_pikaur.sh
 
 sudo pacman -Sy --noconfirm --needed base-devel git
 mkdir -p /tmp/build/

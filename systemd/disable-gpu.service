@@ -3,7 +3,7 @@ Description=Disable the dedicated GPU
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/bin/disable-gpu.sh
+ExecStart=/usr/share/acpi_call/examples/turn_off_gpu.sh
 
 [Install]
 WantedBy=multi-user.target
