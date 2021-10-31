@@ -2,6 +2,4 @@
 
 sudo pacman -S --noconfirm --needed bash bash-completion nano tmux
 
-sudo cp ../configs/.bashrc /etc/bash.bashrc
-sudo cp ../configs/.nanorc /etc/nanorc
-sudo cp ../configs/.tmux.conf /etc/tmux.conf
+cp ../configs/{.bashrc,.nanorc,.tmux.conf} ~/
