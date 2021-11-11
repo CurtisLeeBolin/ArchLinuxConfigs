@@ -66,9 +66,10 @@ if [ ! -d ${GOPATH} ]; then
 fi
 
 # Add Node.js
-export npm_config_prefix=${HOME}/.local/lib/npm
-export NODE_PATH=${HOME}/.local/lib/node_modules
-export PATH=$PATH:${npm_config_prefix}/bin
+export npm_config_prefix=${HOME}/.local
+export npm_config_cache=${HOME}/.cache/npm
+export npm_config_userconfig=${HOME}/.config/npmrc
+export NODE_PATH=${npm_config_prefix}/lib/node_modules
 if [ ! -d ${npm_config_prefix} ]; then
   mkdir -p ${npm_config_prefix}
 fi
