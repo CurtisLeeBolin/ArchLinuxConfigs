@@ -31,7 +31,7 @@ alias cowcp='cp --reflink=always'
 
 # Use bash-completion, if available
 [[ ${PS1} && -f /usr/share/bash-completion/bash_completion ]] && \
-  . /usr/share/bash-completion/bash_completion
+  source /usr/share/bash-completion/bash_completion
 
 # man with colors using less
 man() {
@@ -58,20 +58,11 @@ shopt -s histappend
 ## After each command, save and reload history
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
-# Add Go
-export GOPATH=${HOME}/.local/lib/go
-export PATH=${PATH}:${GOPATH}/bin
-if [ ! -d ${GOPATH} ]; then
-  mkdir -p ${GOPATH}
-fi
-
-# Add Node.js
-export npm_config_prefix=${HOME}/.local
-export npm_config_cache=${HOME}/.cache/npm
-export npm_config_userconfig=${HOME}/.config/npmrc
-export NODE_PATH=${npm_config_prefix}/lib/node_modules
-if [ ! -d ${npm_config_prefix} ]; then
-  mkdir -p ${npm_config_prefix}
+# Add Python
+export VIRTUAL_ENV=${HOME}/.local/lib/python
+export PATH=${VIRTUAL_ENV}/bin:${PATH}
+if [ ! -d ${VIRTUAL_ENV} ]; then
+  python -m venv ${VIRTUAL_ENV}
 fi
 
 # Add Rust Cargo
@@ -81,8 +72,24 @@ if [ ! -d ${CARGO_HOME} ]; then
   mkdir -p ${CARGO_HOME}
 fi
 
+# Add Node.js
+export npm_config_prefix=${HOME}/.local
+export npm_config_cache=${HOME}/.cache/npm
+export npm_config_userconfig=${HOME}/.config/npmrc
+export NODE_PATH=${npm_config_prefix}/lib/node_modules
+if [ ! -d ${NODE_PATH} ]; then
+  mkdir -p ${NODE_PATH}
+fi
+
+# Add Go
+export GOPATH=${HOME}/.local/lib/go
+export PATH=${PATH}:${GOPATH}/bin
+if [ ! -d ${GOPATH} ]; then
+  mkdir -p ${GOPATH}
+fi
+
 # Add $HOME/.local/bin to PATH
-export PATH=${PATH}:${HOME}/.local/bin
+export PATH=${HOME}/.local/bin:${PATH}
 
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
