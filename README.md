@@ -1,4 +1,4 @@
-MyArchLinuxGoodies
+Arch Linux Configs
 ==================
 
 Just some docs, config files, and scripts for ArchLinux.
