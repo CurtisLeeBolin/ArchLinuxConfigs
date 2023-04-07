@@ -7,3 +7,5 @@ sudo cp ../configs/{.bashrc,.bash_profile,.nanorc,.tmux.conf} /root/
 
 find /usr/share/nano/ -type f -name *.nanorc -exec echo "include {}" >> ~/.nanorc \;
 sudo bash -c 'find /usr/share/nano/ -type f -name *.nanorc -exec echo "include {}" >> /root/.nanorc \;'
+
+sudo cp ../configs/modprobe.d/* /etc/modprobe.d/
