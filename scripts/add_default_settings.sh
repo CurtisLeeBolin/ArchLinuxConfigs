@@ -9,3 +9,5 @@ find /usr/share/nano/ -type f -name *.nanorc -exec echo "include {}" >> ~/.nanor
 sudo bash -c 'find /usr/share/nano/ -type f -name *.nanorc -exec echo "include {}" >> /root/.nanorc \;'
 
 sudo cp ../configs/modprobe.d/* /etc/modprobe.d/
+
+sudo cp ../configs/sudoers.d/* /etc/sudoers.d/
