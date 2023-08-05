@@ -45,9 +45,9 @@ man() {
   man "$@"
 }
 
-# usage: sprunge <file> or <some_command> | sprunge
-sprunge() {
-  curl -F 'sprunge=<-' http://sprunge.us < "${1:-/dev/stdin}"
+# usage: ix <file> or <some_command> | ix
+ix() {
+  curl -F 'f:1=<-' ix.io < "${1:-/dev/stdin}"
 }
 
 # Bash Settings
@@ -57,36 +57,6 @@ export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 ## After each command, save and reload history
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
-
-# Add Python
-export VIRTUAL_ENV=${HOME}/.local/lib/python
-export PATH=${VIRTUAL_ENV}/bin:${PATH}
-if [ ! -d ${VIRTUAL_ENV} ]; then
-  python -m venv ${VIRTUAL_ENV}
-fi
-
-# Add Rust Cargo
-export CARGO_HOME=${HOME}/.local/lib/cargo
-export PATH=${PATH}:${CARGO_HOME}/bin
-if [ ! -d ${CARGO_HOME} ]; then
-  mkdir -p ${CARGO_HOME}
-fi
-
-# Add Node.js
-export npm_config_prefix=${HOME}/.local
-export npm_config_cache=${HOME}/.cache/npm
-export npm_config_userconfig=${HOME}/.config/npmrc
-export NODE_PATH=${npm_config_prefix}/lib/node_modules
-if [ ! -d ${NODE_PATH} ]; then
-  mkdir -p ${NODE_PATH}
-fi
-
-# Add Go
-export GOPATH=${HOME}/.local/lib/go
-export PATH=${PATH}:${GOPATH}/bin
-if [ ! -d ${GOPATH} ]; then
-  mkdir -p ${GOPATH}
-fi
 
 # Add $HOME/.local/bin to PATH
 export PATH=${HOME}/.local/bin:${PATH}
