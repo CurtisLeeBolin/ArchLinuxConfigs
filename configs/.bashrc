@@ -1,7 +1,7 @@
 # ~/.bashrc
 # ArchLinux
 
-# If not running interactively, don't do anything
+# If not running interactively, do nothing
 [[ $- != *i* ]] && return
 
 # check the window size after each command and, if necessary,
@@ -45,9 +45,20 @@ man() {
   man "$@"
 }
 
+# less with syntax highlighting
+if hash pygmentize 2>/dev/null; then
+  export LESS='-R'
+  export LESSOPEN='|pygmentize -P style=monokai -g %s'
+fi
+
 # usage: ix <file> or <some_command> | ix
 ix() {
   curl -F 'f:1=<-' ix.io < "${1:-/dev/stdin}"
+}
+
+# usage: <some_command> | sprunge
+sprunge() {
+  curl -F 'sprunge=<-' http://sprunge.us
 }
 
 # Bash Settings
@@ -61,8 +72,7 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; histor
 # Add $HOME/.local/bin to PATH
 export PATH=${HOME}/.local/bin:${PATH}
 
-# If not running interactively, do not do anything
-[[ $- != *i* ]] && return
-if [ -z "${TMUX}" ] && hash tmux > /dev/null 2>&1; then
+# start tmux
+if [ -z "${TMUX}" ] && hash tmux 2>/dev/null; then
   exec tmux attach
 fi
