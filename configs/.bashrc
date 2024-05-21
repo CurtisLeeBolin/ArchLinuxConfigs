@@ -51,14 +51,14 @@ if hash pygmentize 2>/dev/null; then
   export LESSOPEN='|pygmentize -P style=monokai -g %s'
 fi
 
-# usage: ix <file> or <some_command> | ix
-ix() {
-  curl -F 'f:1=<-' ix.io < "${1:-/dev/stdin}"
-}
-
 # usage: <some_command> | sprunge
 sprunge() {
-  curl -F 'sprunge=<-' http://sprunge.us
+  curl -F 'sprunge=<-' https://sprunge.us
+}
+
+# usage: <some_command> | 0x0
+0x0() {
+  curl -F 'file=@-' https://0x0.st
 }
 
 # Bash Settings
