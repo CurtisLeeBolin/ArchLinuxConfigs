@@ -1,13 +1,29 @@
 #!/bin/bash
 
-sudo pacman -S --noconfirm --needed bash bash-completion nano tmux
+sudo pacman -S --noconfirm --needed bash bash-completion nano tmux curl lesspipe bat
 
-cp configs/{.bashrc,.bash_profile,.nanorc,.tmux.conf} ~/
-sudo cp configs/{.bashrc,.bash_profile,.nanorc,.tmux.conf} /root/
+configs=(
+  '.bashrc'
+  '.bash_profile'
+  '.nanorc'
+  '.tmux.conf'
+)
 
-find /usr/share/nano/ -type f -name *.nanorc -exec echo "include {}" >> ~/.nanorc \;
-sudo bash -c 'find /usr/share/nano/ -type f -name *.nanorc -exec echo "include {}" >> /root/.nanorc \;'
+for config in "${configs[@]}"; do
+  cp -v configs/${config} ~/
+  sudo cp -v configs/${config} /root/
+done
 
-sudo cp configs/modprobe.d/* /etc/modprobe.d/
+nano_syntax_highlights=(
+  $(find /usr/share/nano/ -type f -name *.nanorc)
+)
 
-sudo cp configs/sudoers.d/* /etc/sudoers.d/
+for nano_syntax_highlight in "${nano_syntax_highlights[@]}"; do
+  echo "${nano_syntax_highlight}"
+  echo "include ${nano_syntax_highlight}" >> ~/.nanorc
+  sudo bash -c 'echo "include ${nano_syntax_highlight}" >> /root/.nanorc'
+done
+
+sudo cp -v configs/modules-load.d/* /etc/modules-load.d/
+
+sudo cp -v configs/sudoers.d/* /etc/sudoers.d/
