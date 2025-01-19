@@ -21,7 +21,7 @@ nano_syntax_highlights=(
 for nano_syntax_highlight in "${nano_syntax_highlights[@]}"; do
   echo "${nano_syntax_highlight}"
   echo "include ${nano_syntax_highlight}" >> ~/.nanorc
-  sudo bash -c 'echo "include ${nano_syntax_highlight}" >> /root/.nanorc'
+  sudo bash -c "echo include ${nano_syntax_highlight} >> /root/.nanorc"
 done
 
 sudo cp -v configs/modules-load.d/* /etc/modules-load.d/
