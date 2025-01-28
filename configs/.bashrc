@@ -51,7 +51,7 @@ sprunge() {
 }
 
 ## avoid duplicates
-export HISTCONTROL=ignoredups:erasedups
+export HISTCONTROL=ignorespace:erasedups
 
 # append history entries
 shopt -s histappend
