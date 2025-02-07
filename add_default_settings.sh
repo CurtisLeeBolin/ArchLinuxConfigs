@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pacman -S --noconfirm --needed bash bash-completion nano tmux curl lesspipe bat
+sudo pacman -Sy --noconfirm --needed bash bash-completion nano tmux curl lesspipe bat
 
 configs=(
   '.bashrc'
