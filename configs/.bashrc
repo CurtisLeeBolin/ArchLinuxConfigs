@@ -23,6 +23,7 @@ export EDITOR=nano
 
 # enable color support
 alias ls='ls --color=auto --group-directories-first -A'
+alias diff='diff --unified --color'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
